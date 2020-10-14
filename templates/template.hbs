@@ -1,0 +1,55 @@
+<div class="inventory-list favourite">
+	{{#if favItems}}
+		<ol class="fav-item">
+			<li class="item inventory-header flexrow">
+				<h3>Item</h3>
+				<div class="item-detail uses">Charges</div>
+				<div class="item-detail uses">Quantity</div>
+				<div class="item-detail item-controls">Control</div>
+			</li>
+			{{#each favItems as |item id|}}
+				{{> "modules/swalt/templates/item.hbs" item=item}}
+			{{/each}}
+		</ol>
+	{{/if}}
+	{{#if favFeats}}
+		<ol class="fav-feat">
+			<li class="item inventory-header flexrow">
+			  <h3>Features & Feats</h3>
+				<div class="item-detail uses">Uses</div>
+				<div class="item-detail item-controls">Control</div>
+			</li>
+			{{#each favFeats as |feat lvl|}}
+				{{> "modules/swalt/templates/item.hbs" item=feat}}
+			{{/each}}
+		</ol>
+	{{/if}}
+	{{#if favPowers}}
+		<ol class="fav-power">
+			{{#each favPowers as |section lvl|}}
+				{{#if section.powers}}
+					{{#if lvl}}
+						<li class="item inventory-header flexrow">                        
+							<h3>
+								{{#if section.isCantrip}}Cantrips{{else}}Powers ~ Level {{lvl}}{{/if}}
+							</h3>
+							<div class="item-detail uses">Components</div>
+							{{#if section.isCantrip}}
+								<div class="item-detail item-controls">Control</div>
+							{{else}}
+								<span class="power-slots">
+									<input type="text" ${inputStyle} data-target="data.powers.power{{lvl}}.value" value="{{section.value}}" placeholder="0" data-dtype="Number" disabled/>
+									/
+									<input type="text" ${inputStyle} data-target="data.powers.power{{lvl}}.max" value="{{section.max}}" placeholder="0" data-dtype="Number" disabled/>
+								</span>
+							{{/if}}
+						</li>
+							{{#each section.powers as |power id|}}
+								{{> "modules/swalt/templates/item.hbs" item=power}}
+							{{/each}}
+					{{/if}}
+				{{/if}}
+			{{/each}}
+		</ol>
+	{{/if}}
+</div>

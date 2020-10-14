@@ -1,0 +1,16 @@
+{
+	"name": "swalt",
+	"title": "Kakeman's Alt Sheet",
+	"description": "Replaces the default SW5e character sheet with an alternate layout of the main tab (including an area to list frequently used items, spells, etc), additional information in the biography tab, and a new tab for taking notes.",
+	"version": "1.3.5",
+	"author": "Kakeman",
+	"minimumCoreVersion": "0.6.5",
+	"compatibleCoreVersion": "0.7.3",
+	"systems": ["sw5e"],
+	"minimumSystemVersion": "0.94",
+	"esmodules": ["swalt.js"],
+	"styles": ["/css/swalt.css", "/css/swalt-extra.css"],
+	"url": "",
+	"manifest": "",
+	"download": ""
+}
